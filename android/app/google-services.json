@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "170550641491",
+    "project_id": "fir-loginpage-app",
+    "storage_bucket": "fir-loginpage-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170550641491:android:6a7efcf996e451345d97a6",
+        "android_client_info": {
+          "package_name": "com.example.login_page"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170550641491-v3ufcdgdd6dfflibtk2qqq24p15i9nr8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMCyQNLpr39mLRGIhlfHyUDpClnXksoDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170550641491-v3ufcdgdd6dfflibtk2qqq24p15i9nr8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
