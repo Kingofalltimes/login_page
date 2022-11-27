@@ -26,7 +26,54 @@ class Authcontrollar extends GetxController {
       print("login page");
       Get.offAll(() => loginpage());
     } else {
-      Get.offAll(() => Wecomepage());
+      Get.offAll(() => Wecomepage(email: user.email!));
     }
+  }
+
+  Future<void> ragister(String email, password) async {
+    try {
+      await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } catch (e) {
+      Get.snackbar(
+        "About usar",
+        "user massage",
+        backgroundColor: Colors.redAccent,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: Text(
+          "Account Creation faild",
+          style: TextStyle(color: Colors.white),
+        ),
+        messageText: Text(
+          e.toString(),
+          style: TextStyle(color: Colors.white),
+        ),
+      );
+    }
+  }
+
+  Future<void> login(String email, password) async {
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {
+      Get.snackbar(
+        "About login",
+        "login massage",
+        backgroundColor: Colors.redAccent,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: Text(
+          "login faild",
+          style: TextStyle(color: Colors.white),
+        ),
+        messageText: Text(
+          e.toString(),
+          style: TextStyle(color: Colors.white),
+        ),
+      );
+    }
+  }
+
+  void logout() async {
+    await auth.signOut();
   }
 }

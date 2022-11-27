@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:login_page/Login_Page.dart';
+import 'package:login_page/auth_controlar.dart';
 import 'signup_page.dart';
 
 class Wecomepage extends StatelessWidget {
-  const Wecomepage({super.key});
+    String email;
+   Wecomepage({super.key,required this.email});
 
   @override
   Widget build(BuildContext context) {
+  
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -48,7 +51,7 @@ class Wecomepage extends StatelessWidget {
                       color: Colors.black54),
                 ),
                 Text(
-                  "a@abj.com",
+                  email,
                   style: TextStyle(fontSize: 18, color: Colors.grey.shade500),
                 ),
               ],
@@ -57,9 +60,8 @@ class Wecomepage extends StatelessWidget {
           SizedBox(
             height: 200,
           ),
-          InkWell(
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => loginpage())),
+          GestureDetector(
+            onTap: () => Authcontrollar.instance.logout(),
             child: Container(
               width: w * 0.5,
               height: h * 0.08,

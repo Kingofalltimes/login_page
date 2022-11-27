@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_page/auth_controlar.dart';
 import 'package:login_page/signup_page.dart';
 import 'package:login_page/welcome%20page.dart';
 
@@ -12,6 +13,8 @@ class loginpage extends StatefulWidget {
 }
 
 class _loginpageState extends State<loginpage> {
+  var emailcantrolar = TextEditingController();
+  var passwordcantrolar = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -56,6 +59,7 @@ class _loginpageState extends State<loginpage> {
                               color: Colors.grey.withOpacity(0.2)),
                         ]),
                     child: TextField(
+                      controller: emailcantrolar,
                       decoration: InputDecoration(
                           hintText: "Email Id",
                           prefixIcon: Icon(
@@ -89,6 +93,8 @@ class _loginpageState extends State<loginpage> {
                               color: Colors.grey.withOpacity(0.2)),
                         ]),
                     child: TextField(
+                      controller: passwordcantrolar,
+                      obscureText: true,
                       decoration: InputDecoration(
                           hintText: "Password",
                           prefixIcon: Icon(
@@ -128,9 +134,9 @@ class _loginpageState extends State<loginpage> {
             SizedBox(
               height: 70,
             ),
-            InkWell(
-              onTap: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Wecomepage())),
+            GestureDetector(
+              onTap: () => Authcontrollar.instance.login(
+                  emailcantrolar.text.trim(), passwordcantrolar.text.trim()),
               child: Container(
                 width: w * 0.5,
                 height: h * 0.08,
